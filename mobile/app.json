@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "QuantPilot",
+    "slug": "quantpilot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "marketsim",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#151926"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.marketsim.app",
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#151926"
+      },
+      "package": "com.marketsim.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite"
+    ]
+  }
+}

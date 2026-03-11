@@ -1,0 +1,75 @@
+name: Nightly Dev Check
+
+on:
+  schedule:
+    # 每日凌晨 3:00 (UTC+8) = UTC 19:00
+    - cron: '0 19 * * *'
+  workflow_dispatch: # 手動觸發
+
+jobs:
+  web:
+    name: Web Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type Check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+        env:
+          DATABASE_URL: postgresql://fake:fake@localhost:5432/fake
+
+  server:
+    name: API Server
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+
+      - run: npm ci
+
+      - name: Type Check
+        run: npx tsc --noEmit
+
+  mobile:
+    name: Mobile App
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - run: npm ci
+
+      - name: Type Check
+        run: npx tsc --noEmit

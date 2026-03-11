@@ -1,0 +1,23 @@
+export const colors = {
+  // iOS-style light background
+  background: "#f2f2f7",
+  card: "#ffffff",
+  cardBorder: "rgba(0,0,0,0.06)",
+  primary: "#007aff",
+  primaryLight: "rgba(0,122,255,0.1)",
+  secondary: "#f2f2f7",
+  foreground: "#1c1c1e",
+  mutedForeground: "#8e8e93",
+  destructive: "#ff3b30",
+  destructiveLight: "rgba(255,59,48,0.1)",
+  success: "#34c759",
+  successLight: "rgba(52,199,89,0.1)",
+  warning: "#ff9500",
+  warningLight: "rgba(255,149,0,0.1)",
+  blue: "#007aff",
+  blueLight: "rgba(0,122,255,0.1)",
+  orange: "#ff9500",
+  orangeLight: "rgba(255,149,0,0.1)",
+  border: "rgba(0,0,0,0.08)",
+  inputBg: "rgba(120,120,128,0.08)",
+};

@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* iOS 18 System Colors */
+    --background: 240 5% 95%;        /* #F2F2F7 grouped background */
+    --foreground: 240 4% 11%;        /* #1C1C1E label */
+
+    --card: 0 0% 100%;               /* #FFFFFF card surface */
+    --card-foreground: 240 4% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 4% 11%;
+
+    --primary: 211 100% 50%;         /* #007AFF system blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 92%;         /* #E5E5EA secondary fill */
+    --secondary-foreground: 240 4% 11%;
+
+    --muted: 240 5% 92%;
+    --muted-foreground: 240 2% 55%;  /* #8E8E93 secondary label */
+
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 86% 59%;        /* #FF3B30 system red */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 133 57% 49%;          /* #34C759 system green */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%;          /* #FF9500 system orange */
+    --warning-foreground: 0 0% 100%;
+
+    --border: 240 5% 89%;            /* #E5E5EA separator */
+    --input: 240 5% 92%;
+    --ring: 211 100% 50%;
+
+    --radius: 1rem;                  /* iOS default card radius 16px */
+
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+    --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* iOS-style thin scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.35);
+}

@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Next.js
+.next/
+out/
+build/
+.vercel/
+
+# Build output
+dist/
+
+# Expo / React Native
+.expo/
+mobile/.expo/
+mobile/dist/
+mobile/ios/
+mobile/android/
+*.hbc
+
+# Security & Secrets (CRITICAL)
+.env
+.env.*
+.env*.local
+!.env.example
+*.pem
+*.jks
+*.p8
+*.p12
+*.key
+*.keystore
+*.mobileprovision
+
+# Database
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Drizzle
+server/migrations/
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+
+# Editor & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Logs and Debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Claude / AI
+.claude_data/
+.claude/
+.gemini/
+
+# Replit
+.replit
+replit.md
+.replit.nix
+attached_assets/
+
+# Misc
+*.tar.gz
+*.orig.*
