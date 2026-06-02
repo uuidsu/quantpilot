@@ -27,7 +27,8 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom", "@types/jest"]
   },
   "include": [
     "next-env.d.ts",
