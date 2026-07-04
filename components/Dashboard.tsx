@@ -771,7 +771,7 @@ export function Dashboard({ initialData, onSimChange }: DashboardProps) {
   });
   const [deletingCashEventId, setDeletingCashEventId] = useState<number | null>(null);
 
-  const simId = sim.id;
+  const simId = sim?.id;
 
   useEffect(() => {
     setSim(initialData);
@@ -849,7 +849,7 @@ export function Dashboard({ initialData, onSimChange }: DashboardProps) {
       ]).catch(() => {}).finally(() => setDbLoading(false));
     }
     if (activeTab === "account") {
-      getOptionsTargetMatches(sim.id).then(setOptionsTargetMatches).catch(() => {});
+      getOptionsTargetMatches(sim?.id).then(setOptionsTargetMatches).catch(() => {});
     }
     if (activeTab === "trades") {
       getCashEvents(simId).then(setCashEventsList).catch(() => {});
@@ -1787,7 +1787,7 @@ export function Dashboard({ initialData, onSimChange }: DashboardProps) {
                       {targetMatch && (
                         <button onClick={async () => {
                           await deleteOptionsTarget(targetMatch.target.id);
-                          getOptionsTargetMatches(sim.id).then(setOptionsTargetMatches).catch(() => {});
+                          getOptionsTargetMatches(sim?.id).then(setOptionsTargetMatches).catch(() => {});
                           closeOverlay();
                         }}
                           className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-destructive text-xs font-medium border border-destructive/20 hover:bg-destructive/10 transition-colors">
@@ -1831,7 +1831,7 @@ export function Dashboard({ initialData, onSimChange }: DashboardProps) {
                               try {
                                 await updateOptionsTarget(targetMatch!.target.id, { action: editTargetForm.action, callPut: editTargetForm.callPut, targetDelta: delta, contractMonth: editTargetForm.contractMonth || null, quantity: parseInt(editTargetForm.quantity) || 1 });
                                 setEditingTargetId(null);
-                                getOptionsTargetMatches(sim.id).then(setOptionsTargetMatches).catch(() => {});
+                                getOptionsTargetMatches(sim?.id).then(setOptionsTargetMatches).catch(() => {});
                                 toast.success("策略已更新");
                               } catch { toast.error("更新失敗"); }
                             }}
@@ -3145,7 +3145,7 @@ export function Dashboard({ initialData, onSimChange }: DashboardProps) {
                             quantity: parseInt(optionsTargetForm.quantity) || 1,
                           });
                           setShowAddForm(null);
-                          getOptionsTargetMatches(sim.id).then(setOptionsTargetMatches).catch(() => {});
+                          getOptionsTargetMatches(sim?.id).then(setOptionsTargetMatches).catch(() => {});
                           toast.success("已新增選擇權策略");
                         }}
                         className="mt-3 w-full py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors"
