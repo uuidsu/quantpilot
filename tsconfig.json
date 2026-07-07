@@ -23,6 +23,7 @@
       }
     ],
     "baseUrl": ".",
+    "types": ["vitest/globals", "@testing-library/jest-dom", "node", "react", "react-dom"],
     "paths": {
       "@/*": [
         "./*"
